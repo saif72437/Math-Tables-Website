@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables Website</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            color: white;
+            font-size: 6rem;
+        }
+        .main{
+            min-height: 100vh;
+            width: 100vw;
+            background-color: rgb(146, 78, 160);
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+            flex-direction: column;
+        }
+        .box{
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        input{
+            width: 50vw;
+            padding: 20px;
+            border: none;
+            outline: none;
+            font-size: 2rem;
+        }
+        button{
+            border: none;
+            outline: none;
+            background-color: blue;
+            color: white;
+            font-size: 2vw;
+            padding: 20px;
+        }
+        button:hover{
+            cursor: pointer;
+            background-color: rgb(129, 129, 249);
+        }
+        .tableBox{
+            color: white;
+            border: 2px solid white;
+            padding: 50px;
+            border-radius: 20px;
+            margin: 10px;
+            background-color: rgb(146, 78, 160);
+            box-shadow: 5px 5px 15px rgb(239, 161, 239), -5px -5px 15px rgb(239, 161, 239);
+
+        }
+        p{
+            color: white;
+            font-size: 4rem;
+          
+        }
+        li{
+            list-style: none;
+            font-size: 3rem;
+        }
+
+        @media screen and (max-width: 700px) {
+            .box{
+                display: flex;
+                flex-direction: column;
+            }
+            button{
+                font-size: 20px;
+            }
+            h1{
+                font-size: 3rem;
+            }
+            p{font-size: 2rem;}
+            li{
+                font-size: 2rem;
+            }
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="main">
+
+        <h1>Tables Website</h1>
+        <div class="box">
+            <input type="number" id="myInput">
+            <button id="myBtn">Show Table</button>
+        </div>
+        <p>Table Here</p>
+        <!-- <div class="tableBox">
+            <li>2 x 1 = 2</li>
+            <li>2 x 1 = 2</li>
+            <li>2 x 1 = 2</li>
+            <li>2 x 1 = 2</li>
+            <li>2 x 1 = 2</li>
+            <li>2 x 1 = 2</li>
+            <li>2 x 1 = 2</li>
+            <li>2 x 1 = 2</li>
+            <li>2 x 1 = 2</li>
+            <li>2 x 1 = 2</li>
+            
+        </div> -->
+    </div>
+
+    <script>
+        let myInput = document.querySelector("#myInput");
+        let myBtn = document.querySelector("#myBtn");
+        let myMain = document.querySelector(".main");
+
+        myBtn.addEventListener('click', ()=>{
+            let table = Number(myInput.value)
+            myInput.value = ""
+            let number = 1;
+            let myTableDiv = document.createElement('div')
+            myTableDiv.classList.add('tableBox')
+
+            while(number <= 10){
+                let myLi = document.createElement('li')
+                                    // 4 x 5 = 20
+                myLi.innerHTML = `${table} x ${number} = ${table * number}`
+                myTableDiv.appendChild(myLi)
+                number++;
+               
+            }
+           
+           
+            myMain.appendChild(myTableDiv)
+            
+
+        })
+    </script>
+</body>
+</html>
